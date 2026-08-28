@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pipeline Sprzedażowy - Detale</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            padding: 40px 20px;
+        }
+
+        /* Kontener dla 4 boksów */
+        .pipeline-container {
+            display: flex;
+            gap: 20px;
+            max-width: 1300px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        /* Styl pojedynczego boksu */
+        .pipeline-box {
+            flex: 1;
+            min-width: 280px;
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-top: 5px solid #3498db;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            /* Spycha przycisk na sam dół */
+            transition: transform 0.2s;
+        }
+
+        .pipeline-box:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Kolory etapów */
+        .box-1 {
+            border-top-color: #e67e22;
+        }
+
+        .box-2 {
+            border-top-color: #f1c40f;
+        }
+
+        .box-3 {
+            border-top-color: #3498db;
+        }
+
+        .box-4 {
+            border-top-color: #2ecc71;
+        }
+
+        /* Nagłówek */
+        .box-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .box-title {
+            font-size: 1.15rem;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .step-number {
+            font-size: 0.75rem;
+            background: #eee;
+            padding: 3px 8px;
+            border-radius: 12px;
+            color: #666;
+        }
+
+        /* Pasek postępu */
+        .progress-container {
+            margin-bottom: 20px;
+        }
+
+        .progress-bar-bg {
+            background: #e0e0e0;
+            border-radius: 4px;
+            height: 6px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+        }
+
+        /* Kolory wypełnienia paska postępu */
+        .box-1 .progress-bar-fill {
+            width: 25%;
+            background-color: #e67e22;
+        }
+
+        .box-2 .progress-bar-fill {
+            width: 50%;
+            background-color: #f1c40f;
+        }
+
+        .box-3 .progress-bar-fill {
+            width: 75%;
+            background-color: #3498db;
+        }
+
+        .box-4 .progress-bar-fill {
+            width: 100%;
+            background-color: #2ecc71;
+        }
+
+        /* Lista itemów wewnątrz boksu */
+        .items-list {
+            list-style: none;
+            margin-bottom: 20px;
+            flex-grow: 1;
+            /* Pozwala liście zająć wolną przestrzeń */
+        }
+
+        .item {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-left: 3px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 0.85rem;
+            color: #495057;
+        }
+
+        /* Kolory akcentów dla itemów */
+        .box-1 .item {
+            border-left-color: #e67e22;
+        }
+
+        .box-2 .item {
+            border-left-color: #f1c40f;
+        }
+
+        .box-3 .item {
+            border-left-color: #3498db;
+        }
+
+        .box-4 .item {
+            border-left-color: #2ecc71;
+        }
+
+        .item-title {
+            font-weight: bold;
+            color: #212529;
+            margin-bottom: 3px;
+        }
+
+        .item-value {
+            font-size: 0.8rem;
+            color: #6c757d;
+            display: block;
+            margin-top: 5px;
+        }
+
+        /* Przycisk akcji */
+        .action-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            background: #34495e;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: background 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Zmiana koloru przycisku w zależności od etapu przy najechaniu */
+        .box-1 .action-btn:hover {
+            background: #e67e22;
+        }
+
+        .box-2 .action-btn:hover {
+            background: #f1c40f;
+            color: #212529;
+        }
+
+        .box-3 .action-btn:hover {
+            background: #3498db;
+        }
+
+        .box-4 .action-btn:hover {
+            background: #2ecc71;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="pipeline-container">
+
+        <!-- Box 1 -->
+        <div class="pipeline-box box-1">
+            <div>
+                <div class="box-header">
+                    <h3 class="box-title">Kwalifikacja</h3>
+                    <span class="step-number">25%</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill"></div>
+                    </div>
+                </div>
+                <ul class="items-list">
+                    <li class="item">
+                        <div class="item-title">ACME Corp Sp. z o.o.</div>
+                        <p>Lead z formularza WWW</p>
+                        <span class="item-value">Wartość: 12 000 zł</span>
+                    </li>
+                    <li class="item">
+                        <div class="item-title">Jan Kowalski (Bud-Max)</div>
+                        <p>Zapytanie e-mail</p>
+                        <span class="item-value">Wartość: 4 500 zł</span>
+                    </li>
+                </ul>
+            </div>
+            <button class="action-btn">Zarządzaj (2)</button>
+        </div>
+
+        <!-- Box 2 -->
+        <div class="pipeline-box box-2">
+            <div>
+                <div class="box-header">
+                    <h3 class="box-title">Kontakt</h3>
+                    <span class="step-number">50%</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill"></div>
+                    </div>
+                </div>
+                <ul class="items-list">
+                    <li class="item">
+                        <div class="item-title">XYZ Logistics</div>
+                        <p>Umówione spotkanie na MS Teams</p>
+                        <span class="item-value">Wartość: 35 000 zł</span>
+                    </li>
+                    <li class="item">
+                        <div class="item-title">Klinika Dent-Med</div>
+                        <p>Oczekiwanie na telefon zwrotny</p>
+                        <span class="item-value">Wartość: 8 900 zł</span>
+                    </li>
+                </ul>
+            </div>
+            <button class="action-btn">Zarządzaj (2)</button>
+        </div>
+
+        <!-- Box 3 -->
+        <div class="pipeline-box box-3">
+            <div>
+                <div class="box-header">
+                    <h3 class="box-title">Propozycja</h3>
+                    <span class="step-number">75%</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill"></div>
+                    </div>
+                </div>
+                <ul class="items-list">
+                    <li class="item">
+                        <div class="item-title">SoftTech SA</div>
+                        <p>Oferta v2 po negocjacjach cenowych</p>
+                        <span class="item-value">Wartość: 78 000 zł</span>
+                    </li>
+                </ul>
+            </div>
+            <button class="action-btn">Zarządzaj (1)</button>
+        </div>
+
+        <!-- Box 4 -->
+        <div class="pipeline-box box-4">
+            <div>
+                <div class="box-header">
+                    <h3 class="box-title">Zamknięte</h3>
+                    <span class="step-number">100%</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill"></div>
+                    </div>
+                </div>
+                <ul class="items-list">
+                    <li class="item">
+                        <div class="item-title">Global Trade sp.k.</div>
+                        <p>Umowa podpisana elektronicznie</p>
+                        <span class="item-value">Wartość: 150 000 zł</span>
+                    </li>
+                </ul>
+            </div>
+            <button class="action-btn">Podsumowanie</button>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
