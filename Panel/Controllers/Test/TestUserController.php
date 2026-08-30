@@ -30,6 +30,18 @@ class TestUserController extends Controller
 			$sortDirection = 'asc';
 		}
 
+		// Pobieramy tylko 'name' jako klucz i 'users_count' jako wartość
+		// 'facets' => Role::withCount('users')->pluck('users_count', 'name')->toArray(),
+
+		// Pobieramy tylko 'name' jako klucz oraz 'users_count' i 'id'
+		$facets = Role::withCount('users')
+			->get(['id', 'name'])->keyBy('name')->map(function ($role) {
+				return [
+					'id' => $role->id,
+					'count' => $role->users_count,
+				];
+			})->toArray();
+
 		return Inertia::render('test/users/Index', [
 			// Eager loading relacji ról ze Spatie
 			'users' => User::query()
@@ -50,6 +62,9 @@ class TestUserController extends Controller
 
 			// Pobranie wszystkich ról dla dropdowna w Vue
 			'roles' => Role::select(['id', 'name'])->get(),
+
+			// Role z policzonymi userami
+			'facets' => $facets,
 
 			// Przekazanie filtrów do zsynchronizowania stanu komponentu
 			'filters' => $request->only(['search', 'role', 'field', 'direction', 'per_page']),

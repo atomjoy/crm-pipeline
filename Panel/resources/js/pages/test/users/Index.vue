@@ -18,6 +18,10 @@ const props = defineProps({
         type: Array,
         required: true,
     },
+    facets: {
+        type: Object, // Format: { admin: { id: 1, count: 3 }, editor: { id: 2, count: 12 } }
+        required: true,
+    },
     filters: {
         type: Object,
         default: () => ({ search: '', role: '', field: 'id', direction: 'asc', per_page: '10' }),
@@ -140,9 +144,7 @@ const deleteSelectedUsers = () => {
                 <!-- Filtr Roli (Spatie): w-full na mobile, md:w-48 na desktopie -->
                 <select v-model="selectedRole" class="w-full cursor-pointer rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none md:w-48">
                     <option value="">Wszystkie role</option>
-                    <option v-for="role in roles" :key="role.id" :value="role.name">
-                        {{ role.name }}
-                    </option>
+                    <option v-for="(roleData, roleName) in facets" :key="roleData.id" :value="roleName">{{ roleName }} ({{ roleData.count }})</option>
                 </select>
 
                 <!-- Filtr perPage z tekstem wewnątrz selecta -->
