@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pipeline Oldschool</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f6f9;
+            padding: 40px 20px;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .col {
+            flex: 1;
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-top: 5px solid #3498db;
+            display: flex;
+            flex-direction: column;
+            transition: transform .2s;
+        }
+
+        .col:hover {
+            transform: translateY(-5px);
+        }
+
+        .col:nth-child(1) {
+            border-top-color: #e67e22;
+        }
+
+        .col:nth-child(2) {
+            border-top-color: #f1c40f;
+        }
+
+        .col:nth-child(3) {
+            border-top-color: #3498db;
+        }
+
+        .col:nth-child(4) {
+            border-top-color: #2ecc71;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .col-title {
+            font-size: 1.15rem;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .step {
+            font-size: .75rem;
+            background: #eee;
+            padding: 3px 8px;
+            border-radius: 12px;
+            color: #666;
+        }
+
+        .progress-bg {
+            background: #e0e0e0;
+            border-radius: 4px;
+            height: 6px;
+            width: 100%;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+        }
+
+        .col:nth-child(1) .progress-fill {
+            width: 25%;
+            background: #e67e22;
+        }
+
+        .col:nth-child(2) .progress-fill {
+            width: 50%;
+            background: #f1c40f;
+        }
+
+        .col:nth-child(3) .progress-fill {
+            width: 75%;
+            background: #3498db;
+        }
+
+        .col:nth-child(4) .progress-fill {
+            width: 100%;
+            background: #2ecc71;
+        }
+
+        .card {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-left: 3px solid #ccc;
+            border-radius: 4px;
+            padding: 12px;
+            margin-bottom: 12px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .col:nth-child(1) .card {
+            border-left-color: #e67e22;
+        }
+
+        .col:nth-child(2) .card {
+            border-left-color: #f1c40f;
+        }
+
+        .col:nth-child(3) .card {
+            border-left-color: #3498db;
+        }
+
+        .col:nth-child(4) .card {
+            border-left-color: #2ecc71;
+        }
+
+        .name {
+            font-weight: bold;
+            color: #212529;
+            font-size: .85rem;
+            margin-bottom: 2px;
+        }
+
+        .source {
+            font-size: .75rem;
+            color: #6c757d;
+        }
+
+        .card-bottom {
+            border-top: 1px solid #e9ecef;
+            margin-top: 10px;
+            padding-top: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+        }
+
+        .value {
+            font-size: .82rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .tasks {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            width: 100%;
+            margin-bottom: 8px;
+        }
+
+        .task-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: .72rem;
+            color: #495057;
+            cursor: pointer;
+        }
+
+        .task-item input {
+            cursor: pointer;
+        }
+
+        .next-btn {
+            align-self: stretch;
+            background: transparent;
+            border: 1px solid #dcdde1;
+            color: #7f8c8d;
+            padding: 5px;
+            font-size: .7rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            text-align: center;
+            transition: all .2s;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+        }
+
+        .next-btn:hover {
+            background: #34495e;
+            color: #fff;
+            border-color: #34495e;
+        }
+
+        .col:last-child .next-btn {
+            display: none;
+        }
+
+        .footer {
+            max-width: 1300px;
+            margin: 24px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid #dcdde1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: .95rem;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .f-amount {
+            font-size: 1.6rem;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="col">
+                <div class="header">
+                    <div class="col-title">Kwalifikacja</div><span class="step">25%</span>
+                </div>
+                <div class="progress-bg">
+                    <div class="progress-fill"></div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="name">Jan Kowalski</div>
+                        <div class="source">Kampania WWW</div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="value">30 000 zł</div>
+                        <div class="tasks"><label class="task-item"><input type="checkbox"> Przygotować ofertę</label><label class="task-item"><input type="checkbox"> Wysłać e-mail</label></div><button class="next-btn">Przejdź dalej</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="name">Anna Nowak</div>
+                        <div class="source">Meta Ads</div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="value">12 500 zł</div>
+                        <div class="tasks"><label class="task-item"><input type="checkbox"> Przygotować ofertę</label><label class="task-item"><input type="checkbox"> Wysłać e-mail</label></div><button class="next-btn">Przejdź dalej</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="header">
+                    <div class="col-title">Kontakt</div><span class="step">50%</span>
+                </div>
+                <div class="progress-bg">
+                    <div class="progress-fill"></div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="name">Marta Wilk</div>
+                        <div class="source">Polecenie</div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="value">19 900 zł</div>
+                        <div class="tasks"><label class="task-item"><input type="checkbox"> Przygotować ofertę</label><label class="task-item"><input type="checkbox"> Wysłać e-mail</label></div><button class="next-btn">Przejdź dalej</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="header">
+                    <div class="col-title">Propozycja</div><span class="step">75%</span>
+                </div>
+                <div class="progress-bg">
+                    <div class="progress-fill"></div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="name">Karol Dąbek</div>
+                        <div class="source">Google Ads</div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="value">24 000 zł</div>
+                        <div class="tasks"><label class="task-item"><input type="checkbox"> Przygotować ofertę</label><label class="task-item"><input type="checkbox"> Wysłać e-mail</label></div><button class="next-btn">Przejdź dalej</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="header">
+                    <div class="col-title">Zamknięte</div><span class="step">100%</span>
+                </div>
+                <div class="progress-bg">
+                    <div class="progress-fill"></div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="name">Tomasz Rak</div>
+                        <div class="source">Google Ads</div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="value">42 000 zł</div>
+                        <div class="tasks"><label class="task-item"><input type="checkbox"> Przygotować ofertę</label><label class="task-item"><input type="checkbox"> Wysłać e-mail</label></div><button class="next-btn">Przejdź dalej</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer"><span>Pula podpisanych umów w tym miesiącu</span><span class="f-amount">128 400 zł</span></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="pl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Atomjoy - Potwierdzenie</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+				background-color: #ffffff;
+				color: #2d3748;
+				-webkit-font-smoothing: antialiased;
+			}
+			table {
+				border-spacing: 0;
+				width: 100%;
+			}
+			td {
+				padding: 0;
+			}
+			img {
+				border: 0;
+				display: block;
+			}
+			.wrapper {
+				width: 100%;
+				table-layout: fixed;
+				background-color: #ffffff;
+				padding: 60px 20px;
+			}
+			.main-table {
+				background-color: #ffffff;
+				margin: 0 auto;
+				width: 100%;
+				max-width: 520px;
+				border-spacing: 0;
+				color: #2d3748;
+				border: 1px solid #e2e8f0;
+				border-radius: 16px;
+				border-collapse: separate;
+			}
+			.header {
+				background-color: #ffffff;
+				padding: 40px 40px 10px 40px;
+				text-align: center;
+			}
+			.content {
+				padding: 20px 40px 40px 40px;
+				line-height: 1.6;
+			}
+			.title {
+				font-size: 24px;
+				font-weight: 700;
+				color: #1a202c;
+				margin-top: 0;
+				margin-bottom: 12px;
+				text-align: center;
+				letter-spacing: -0.5px;
+			}
+			.text {
+				font-size: 15px;
+				color: #718096;
+				text-align: center;
+				margin-bottom: 30px;
+			}
+			.button-container {
+				margin: 0 auto 35px auto;
+				width: auto;
+			}
+			.button {
+				background-color: #111111;
+				color: #ffffff;
+				text-decoration: none;
+				padding: 14px 30px;
+				border-radius: 10px;
+				display: inline-block;
+				font-weight: 600;
+				font-size: 15px;
+				letter-spacing: -0.2px;
+			}
+			.otp-container {
+				margin: 10px auto 35px auto;
+				width: auto;
+			}
+			.otp-box {
+				width: 52px;
+				height: 56px;
+				border: 1px solid #e2e8f0;
+				border-radius: 12px;
+				text-align: center;
+				font-size: 24px;
+				font-weight: 700;
+				color: #1a202c;
+				background-color: #f8fafc;
+			}
+			.order-card {
+				background-color: #f8fafc;
+				border: 1px solid #e2e8f0;
+				border-radius: 12px;
+				padding: 20px;
+				margin-top: 10px;
+				margin-bottom: 25px;
+			}
+			.order-title {
+				font-size: 16px;
+				font-weight: 700;
+				color: #1a202c;
+				margin-top: 0;
+				margin-bottom: 15px;
+				border-bottom: 1px solid #e2e8f0;
+				padding-bottom: 8px;
+			}
+			.order-item {
+				font-size: 14px;
+				color: #4a5568;
+				padding: 6px 0;
+			}
+			.order-total {
+				font-size: 15px;
+				font-weight: 700;
+				color: #1a202c;
+				padding-top: 10px;
+				border-top: 1px dashed #e2e8f0;
+				margin-top: 8px;
+			}
+			.social-container {
+				margin: 0 auto 20px auto;
+				width: auto;
+			}
+			.social-link {
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				line-height: 30px;
+				background-color: #f1f5f9;
+				color: #1a202c !important;
+				text-decoration: none !important;
+				font-weight: 700;
+				font-size: 12px;
+				text-align: center;
+			}
+			.social-link img {
+				display: block;
+				float: left;
+				padding: 2px;
+				border: 0;
+			}
+			.footer {
+				background-color: #ffffff;
+				padding: 40px;
+				text-align: center;
+				font-size: 13px;
+				color: #a0aec0;
+				border-top: 1px solid #edf2f7;
+			}
+			.footer a {
+				color: #718096;
+				text-decoration: none;
+			}
+		</style>
+	</head>
+	<body>
+		<table class="wrapper" role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+			<tr>
+				<td align="center">
+					<table class="main-table" role="presentation" width="100%" max-width="520" cellspacing="0" cellpadding="0" border="0" align="center">
+						<!-- Nagłówek -->
+						<tr>
+							<td class="header" style="border-top-left-radius: 16px; border-top-right-radius: 16px" align="center">
+								<a href="https://atomjoy.lol" target="_blank" style="text-decoration: none">
+									<img src="https://atomjoy.lol/img/logo.webp" width="70" height="70" alt="Atomjoy" style="width: 70px; height: 70px; border: 0; display: inline-block; border-radius: 12px" />
+								</a>
+							</td>
+						</tr>
+
+						<!-- Treść główna -->
+						<tr>
+							<td class="content">
+								<h2 class="title">Dziękujemy za zamówienie!</h2>
+								<p class="text">Cześć {{ user_name }}, Twoja transakcja została przetworzona pomyślnie. Poniżej znajdziesz szczegóły oraz kod weryfikacyjny.</p>
+
+								<!-- Podsumowanie Zamówienia (Dynamiczne) -->
+								<table role="presentation" class="order-card" cellspacing="0" cellpadding="0" border="0">
+									<tr>
+										<td>
+											<div class="order-title">Szczegóły zamówienia #{{ order_id }}</div>
+
+											<table role="presentation" width="100%">
+												<!-- Pętla renderująca produkty z bazy danych -->
+												{{#each items}}
+												<tr>
+													<td class="order-item">{{ this.quantity }}x {{ this.name }}</td>
+													<td class="order-item" align="right" style="font-weight: 600">{{ this.price }}</td>
+												</tr>
+												{{/each}}
+
+												<!-- Podsumowanie finansowe -->
+												<tr>
+													<td class="order-total">Suma całkowita</td>
+													<td class="order-total" align="right">{{ total_amount }}</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+
+								<p class="text" style="font-size: 14px; margin-bottom: 20px">Aby aktywować zakupione usługi, kliknij poniższy przycisk lub wprowadź wygenerowany token bezpieczeństwa OTP:</p>
+
+								<!-- Dynamiczny Przycisk CTA -->
+								<table role="presentation" class="button-container" cellspacing="0" cellpadding="0" border="0" align="center">
+									<tr>
+										<td align="center">
+											<a href="{{ activation_url }}" class="button">Aktywuj dostęp</a>
+										</td>
+									</tr>
+								</table>
+
+								<!-- Dynamiczny wiersz kodu OTP w stylu Dribbble -->
+								<table role="presentation" class="otp-container" cellspacing="0" cellpadding="0" border="0" align="center">
+									<tr>
+										<td class="otp-box">{{ otp1 }}</td>
+										<td width="10">&nbsp;</td>
+										<td class="otp-box">{{ otp2 }}</td>
+										<td width="10">&nbsp;</td>
+										<td class="otp-box">{{ otp3 }}</td>
+										<td width="10">&nbsp;</td>
+										<td class="otp-box">{{ otp4 }}</td>
+										<td width="10">&nbsp;</td>
+										<td class="otp-box">{{ otp5 }}</td>
+										<td width="10">&nbsp;</td>
+										<td class="otp-box">{{ otp6 }}</td>
+									</tr>
+								</table>
+
+								<p style="font-size: 13px; color: #a0aec0; text-align: center; margin-top: 10px; margin-bottom: 0">Kod autoryzacyjny wygaśnie za 10 minut.</p>
+							</td>
+						</tr>
+
+						<!-- Stopka z linkami i profilami social media -->
+						<tr>
+							<td class="footer" style="border-bottom-left-radius: 16px; border-bottom-right-radius: 16px">
+								<!-- Linki Social Media -->
+								<table role="presentation" class="social-container" cellspacing="0" cellpadding="0" border="0" align="center">
+									<tr>
+										<td>
+											<a href="{{ social_x }}" target="_blank" class="social-link">
+												<img src="https://raw.githubusercontent.com/atomjoy/icons/refs/heads/main/black/x.png" width="30" height="30" alt="X" />
+											</a>
+										</td>
+										<td width="20">&nbsp;</td>
+										<td>
+											<a href="{{ social_facebook }}" target="_blank" class="social-link">
+												<img src="https://raw.githubusercontent.com/atomjoy/icons/refs/heads/main/black/facebook.png" width="30" height="30" alt="X" />
+											</a>
+										</td>
+										<td width="20">&nbsp;</td>
+										<td>
+											<a href="{{ social_github }}" target="_blank" class="social-link">
+												<img src="https://raw.githubusercontent.com/atomjoy/icons/refs/heads/main/black/github.png" width="30" height="30" alt="GitHub" />
+											</a>
+										</td>
+										<td width="20">&nbsp;</td>
+										<td>
+											<a href="{{ social_linkedin }}" target="_blank" class="social-link">
+												<img src="https://raw.githubusercontent.com/atomjoy/icons/refs/heads/main/black/linkedin.png" width="30" height="30" alt="LinkedIn" />
+											</a>
+										</td>
+										<td width="20">&nbsp;</td>
+										<td>
+											<a href="{{ social_instagram }}" target="_blank" class="social-link">
+												<img src="https://raw.githubusercontent.com/atomjoy/icons/refs/heads/main/black/instagram.png" width="30" height="30" alt="Instagram" />
+											</a>
+										</td>
+										<td width="20">&nbsp;</td>
+										<td>
+											<a href="{{ social_youtube }}" target="_blank" class="social-link">
+												<img src="https://raw.githubusercontent.com/atomjoy/icons/refs/heads/main/black/youtube.png" width="30" height="30" alt="Youtube" />
+											</a>
+										</td>
+									</tr>
+								</table>
+
+								<p style="margin-top: 0; margin-bottom: 8px">&copy; {{ current_year }} Atomjoy. Wszelkie prawa zastrzeżone.</p>
+								<p style="margin-bottom: 0">Potrzebujesz pomocy? <a href="{{ support_url }}">Skontaktuj się ze wsparciem</a></p>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

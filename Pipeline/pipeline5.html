@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CRM Pipeline</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, sans-serif;
+        }
+
+        body {
+            background: #f8f9fa;
+            padding: 30px;
+        }
+
+        .wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            color: #1a1a1a;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .container {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .col {
+            flex: 1;
+            background: #fff;
+            border: 1px dashed #e2e8f0;
+            border-radius: 10px;
+            padding: 16px;
+            min-height: 400px;
+        }
+
+        .col:first-child {
+            background: #f7f9f2;
+            border: 1px solid #dbe2cb;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+        }
+
+        .col-title {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #718096;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #cbd5e0;
+            display: inline-block;
+        }
+
+        .col:first-child .dot {
+            background: #84cc16;
+        }
+
+        .count {
+            font-size: 0.75rem;
+            background: #edf2f7;
+            padding: 2px 6px;
+            border-radius: 10px;
+            color: #4a5568;
+            font-weight: bold;
+        }
+
+        .col:first-child .count {
+            background: #e2f0d3;
+            color: #4d7c0f;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #edf2f7;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 12px;
+            opacity: 0.45;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+        }
+
+        .col:first-child .card:first-of-type {
+            border: 2px solid #84cc16;
+            opacity: 1;
+            box-shadow: 0 4px 6px rgba(132, 204, 22, 0.08);
+        }
+
+        .card-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #edf2f7;
+            color: #4a5568;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .col:first-child .card:first-of-type .avatar {
+            background: #d9f99d;
+            color: #3f6212;
+        }
+
+        .name {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #1a202c;
+        }
+
+        .source {
+            font-size: 0.75rem;
+            color: #718096;
+        }
+
+        .card-details {
+            border-top: 1px solid #f1f5f9;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+
+        .value {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 8px;
+        }
+
+        .tasks {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .task-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.72rem;
+            color: #4a5568;
+            cursor: pointer;
+        }
+
+        .task-item input {
+            accent-color: #84cc16;
+            cursor: pointer;
+        }
+
+        .footer {
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid #edf2f7;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.95rem;
+            color: #4a5568;
+        }
+
+        .f-amount {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #1a1a1a;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h2>Pipeline sprzedaży</h2>
+        <div class="container">
+
+            <div class="col">
+                <div class="header">
+                    <div class="col-title"><span class="dot"></span>Nowy lead</div>
+                    <span class="count">3</span>
+                </div>
+                <div class="card">
+                    <div class="card-row">
+                        <div class="avatar">JK</div>
+                        <div>
+                            <div class="name">Jan Kowalski</div>
+                            <div class="source">Kampania Advertise</div>
+                        </div>
+                    </div>
+                    <div class="card-details">
+                        <div class="value">30 000 zł</div>
+                        <div class="tasks"><label class="task-item"><input type="checkbox"> Przygotować ofertę</label><label class="task-item"><input type="checkbox"> Wysłać e-mail</label></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-row">
+                        <div class="avatar">AN</div>
+                        <div>
+                            <div class="name">Anna Nowak</div>
+                            <div class="source">Meta Ads</div>
+                        </div>
+                    </div>
+                    <div class="card-details">
+                        <div class="value">12 500 zł</div>
+                        <div class="tasks"><label class="task-item"><input type="checkbox"> Przygotować ofertę</label><label class="task-item"><input type="checkbox"> Wysłać e-mail</label></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-row">
+                        <div class="avatar">PB</div>
+                        <div>
+                            <div class="name">P.H.U. Bud-Mar</div>
+                            <div class="source">Google Ads</div>
+                        </div>
+                    </div>
+                    <div class="card-details">
+                        <div class="value">8 200 zł</div>
+                        <div class="tasks"><label class="task-item"><input type="checkbox"> Przygotować ofertę</label><label class="task-item"><input type="checkbox"> Wysłać e-mail</label></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="header">
+                    <div class="col-title"><span class="dot"></span>Zakwalifikowany</div>
+                    <span class="count">1</span>
+                </div>
+                <div class="card">
+                    <div class="card-row">
+                        <div class="avatar">MW</div>
+                        <div>
+                            <div class="name">Marta Wilk</div>
+                            <div class="source">Polecenie</div>
+                        </div>
+                    </div>
+                    <div class="card-details">
+                        <div class="value">19 900 zł</div>
+                        <div class="tasks"><label class="task-item"><input type="checkbox"> Przygotować ofertę</label><label class="task-item"><input type="checkbox"> Wysłać e-mail</label></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="header">
+                    <div class="col-title"><span class="dot"></span>Oferta wysłana</div>
+                    <span class="count">2</span>
+                </div>
+                <div class="card">
+                    <div class="card-row">
+                        <div class="avatar">KD</div>
+                        <div>
+                            <div class="name">Karol Dąbek</div>
+                            <div class="source">Google Ads</div>
+                        </div>
+                    </div>
+                    <div class="card-details">
+                        <div class="value">24 000 zł</div>
+                        <div class="tasks"><label class="task-item"><input type="checkbox"> Przygotować ofertę</label><label class="task-item"><input type="checkbox"> Wysłać e-mail</label></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-row">
+                        <div class="avatar">ES</div>
+                        <div>
+                            <div class="name">Ewa Sroka</div>
+                            <div class="source">Meta Ads</div>
+                        </div>
+                    </div>
+                    <div class="card-details">
+                        <div class="value">15 700 zł</div>
+                        <div class="tasks"><label class="task-item"><input type="checkbox"> Przygotować ofertę</label><label class="task-item"><input type="checkbox"> Wysłać e-mail</label></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="header">
+                    <div class="col-title"><span class="dot"></span>Umowa podpisana</div>
+                    <span class="count">2</span>
+                </div>
+                <div class="card">
+                    <div class="card-row">
+                        <div class="avatar">TR</div>
+                        <div>
+                            <div class="name">Tomasz Rak</div>
+                            <div class="source">Google Ads</div>
+                        </div>
+                    </div>
+                    <div class="card-details">
+                        <div class="value">42 000 zł</div>
+                        <div class="tasks"><label class="task-item"><input type="checkbox"> Przygotować ofertę</label><label class="task-item"><input type="checkbox"> Wysłać e-mail</label></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-row">
+                        <div class="avatar">JZ</div>
+                        <div>
+                            <div class="name">Jolanta Zych</div>
+                            <div class="source">Meta Ads</div>
+                        </div>
+                    </div>
+                    <div class="card-details">
+                        <div class="value">27 300 zł</div>
+                        <div class="tasks"><label class="task-item"><input type="checkbox"> Przygotować ofertę</label><label class="task-item"><input type="checkbox"> Wysłać e-mail</label></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer">
+            <span>Pula podpisanych umów w tym miesiącu</span>
+            <span class="f-amount">247 500 zł</span>
+        </div>
+    </div>
+</body>
+
+</html>

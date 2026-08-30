@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="pl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Minimalistyczny Szablon E-mail</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				font-family: Arial, sans-serif;
+				background-color: #ffffff;
+				color: #333333;
+			}
+			table {
+				border-spacing: 0;
+				width: 100%;
+			}
+			td {
+				padding: 0;
+			}
+			img {
+				border: 0;
+				display: block; /* Usuwa domyślne marginesy pod obrazkiem w Gmailu */
+			}
+			.wrapper {
+				width: 100%;
+				table-layout: fixed;
+				background-color: #ffffff;
+				padding: 40px 20px;
+			}
+			.main-table {
+				background-color: #ffffff;
+				margin: 0 auto;
+				width: 100%;
+				max-width: 600px;
+				border-spacing: 0;
+				font-family: sans-serif;
+				color: #4a4a4a;
+				border: 1px solid #e0e0e0;
+				border-radius: 6px;
+				border-collapse: separate;
+			}
+			.header {
+				background-color: #ffffff;
+				padding: 40px 30px 20px 30px;
+				text-align: center;
+				border-bottom: 1px solid #f0f0f0;
+			}
+			.content {
+				padding: 40px 30px;
+				line-height: 1.6;
+				font-size: 16px;
+			}
+			.button-container {
+				margin: 30px auto;
+				width: auto;
+			}
+			.button {
+				background-color: #007bff;
+				color: #ffffff;
+				text-decoration: none;
+				padding: 10px 25px;
+				border-radius: 4px;
+				display: inline-block;
+				font-weight: bold;
+				font-size: 16px;
+			}
+			.footer {
+				background-color: #ffffff;
+				padding: 30px;
+				text-align: center;
+				font-size: 13px;
+				color: #777777;
+				border-top: 1px solid #f0f0f0;
+			}
+		</style>
+	</head>
+	<body>
+		<table class="wrapper" role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+			<tr>
+				<td align="center">
+					<table class="main-table" role="presentation" width="100%" max-width="600" cellspacing="0" cellpadding="0" border="0" align="center">
+						<!-- Nagłówek z dodanym logo -->
+						<tr>
+							<td class="header" style="border-top-left-radius: 6px; border-top-right-radius: 6px" align="center">
+								<a href="https://atomjoy.lol" target="_blank" style="text-decoration: none">
+									<img src="https://atomjoy.lol/img/logo.webp" width="80" height="80" alt="Atomjoy" style="width: 80px; height: 80px; border: 0; display: inline-block; border-radius: 4px" />
+								</a>
+							</td>
+						</tr>
+
+						<!-- Treść główna -->
+						<tr>
+							<td class="content">
+								<h2 style="margin-top: 0; color: #1a1a1a">Witaj,</h2>
+								<p>Szablon jest gotowy i w pełni spersonalizowany. Do nagłówka dodałem oficjalne logo Atomjoy ze wskazanego adresu URL, dbając o poprawne wycentrowanie i wymiary.</p>
+								<p>Wiadomość zachowuje minimalistyczny design na białym tle, a ramka o promieniu 6 pikseli oraz dopasowany przycisk idealnie uzupełniają kompozycję.</p>
+
+								<!-- Przycisk CTA -->
+								<table role="presentation" class="button-container" cellspacing="0" cellpadding="0" border="0" align="center">
+									<tr>
+										<td align="center">
+											<a href="#" class="button">Kliknij tutaj</a>
+										</td>
+									</tr>
+								</table>
+
+								<p style="margin-bottom: 0">Pozdrawiamy,<br />Zespół Atomjoy</p>
+							</td>
+						</tr>
+
+						<!-- Stopka -->
+						<tr>
+							<td class="footer" style="border-bottom-left-radius: 6px; border-bottom-right-radius: 6px">
+								<p style="margin-top: 0">&copy; 2026 Atomjoy. Wszelkie prawa zastrzeżone.</p>
+								<p style="margin-bottom: 0">Jeśli nie chcesz otrzymywać tych wiadomości, <a href="#" style="color: #007bff; text-decoration: none">wypisz się</a>.</p>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

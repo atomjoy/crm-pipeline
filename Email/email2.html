@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="pl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Atomjoy - Weryfikacja</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+				background-color: #ffffff;
+				color: #2d3748;
+				-webkit-font-smoothing: antialiased;
+			}
+			table {
+				border-spacing: 0;
+				width: 100%;
+			}
+			td {
+				padding: 0;
+			}
+			img {
+				border: 0;
+				display: block;
+			}
+			.wrapper {
+				width: 100%;
+				table-layout: fixed;
+				background-color: #ffffff;
+				padding: 60px 20px;
+			}
+			.main-table {
+				background-color: #ffffff;
+				margin: 0 auto;
+				width: 100%;
+				max-width: 520px; /* Nieco węższy, bardziej elegancki układ z Dribbble */
+				border-spacing: 0;
+				color: #2d3748;
+				border: 1px solid #e2e8f0;
+				border-radius: 16px; /* Większe, nowoczesne zaokrąglenie */
+				border-collapse: separate;
+			}
+			.header {
+				background-color: #ffffff;
+				padding: 40px 40px 10px 40px;
+				text-align: center;
+			}
+			.content {
+				padding: 20px 40px 40px 40px;
+				line-height: 1.6;
+			}
+			.title {
+				font-size: 24px;
+				font-weight: 700;
+				color: #1a202c;
+				margin-top: 0;
+				margin-bottom: 12px;
+				text-align: center;
+				letter-spacing: -0.5px;
+			}
+			.text {
+				font-size: 15px;
+				color: #718096;
+				text-align: center;
+				margin-bottom: 30px;
+			}
+			.button-container {
+				margin: 0 auto 35px auto;
+				width: auto;
+			}
+			.button {
+				background-color: #111111; /* Dopasowany do logo głębokiej czerni */
+				color: #ffffff;
+				text-decoration: none;
+				padding: 14px 30px;
+				border-radius: 10px; /* Nowoczesne zaokrąglenie przycisku */
+				display: inline-block;
+				font-weight: 600;
+				font-size: 15px;
+				letter-spacing: -0.2px;
+			}
+			/* Nowoczesna sekcja OTP w stylu Dribbble */
+			.otp-container {
+				margin: 10px auto 35px auto;
+				width: auto;
+			}
+			.otp-box {
+				width: 52px;
+				height: 56px;
+				border: 1px solid #e2e8f0;
+				border-radius: 12px;
+				text-align: center;
+				font-size: 24px;
+				font-weight: 700;
+				color: #1a202c;
+				background-color: #f8fafc; /* Bardzo jasne, pastelowe tło z Dribbble */
+			}
+			.footer {
+				background-color: #ffffff;
+				padding: 30px 40px;
+				text-align: center;
+				font-size: 13px;
+				color: #a0aec0;
+				border-top: 1px solid #edf2f7;
+			}
+			.footer a {
+				color: #718096;
+				text-decoration: none;
+			}
+		</style>
+	</head>
+	<body>
+		<table class="wrapper" role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+			<tr>
+				<td align="center">
+					<table class="main-table" role="presentation" width="100%" max-width="520" cellspacing="0" cellpadding="0" border="0" align="center">
+						<!-- Nagłówek -->
+						<tr>
+							<td class="header" style="border-top-left-radius: 16px; border-top-right-radius: 16px" align="center">
+								<a href="https://atomjoy.lol" target="_blank" style="text-decoration: none">
+									<img src="https://atomjoy.lol/img/logo.webp" width="70" height="70" alt="Atomjoy" style="width: 70px; height: 70px; border: 0; display: inline-block; border-radius: 12px" />
+								</a>
+							</td>
+						</tr>
+
+						<!-- Treść główna -->
+						<tr>
+							<td class="content">
+								<h2 class="title">Weryfikacja konta</h2>
+								<p class="text">Cześć! Użyj poniższego kodu, aby bezpiecznie potwierdzić swoją tożsamość i dokończyć logowanie w Atomjoy.</p>
+
+								<!-- Przycisk CTA -->
+								<table role="presentation" class="button-container" cellspacing="0" cellpadding="0" border="0" align="center">
+									<tr>
+										<td align="center">
+											<a href="#" class="button">Zatwierdź profil</a>
+										</td>
+									</tr>
+								</table>
+
+								<!-- Dribbble Style OTP Row -->
+								<table role="presentation" class="otp-container" cellspacing="0" cellpadding="0" border="0" align="center">
+									<tr>
+										<td class="otp-box">4</td>
+										<td width="10">&nbsp;</td>
+										<td class="otp-box">8</td>
+										<td width="10">&nbsp;</td>
+										<td class="otp-box">2</td>
+										<td width="10">&nbsp;</td>
+										<td class="otp-box">0</td>
+										<td width="10">&nbsp;</td>
+										<td class="otp-box">9</td>
+										<td width="10">&nbsp;</td>
+										<td class="otp-box">5</td>
+									</tr>
+								</table>
+
+								<p style="font-size: 13px; color: #a0aec0; text-align: center; margin-top: 10px; margin-bottom: 0">Kod wygaśnie automatycznie za 10 minut.</p>
+							</td>
+						</tr>
+
+						<!-- Stopka -->
+						<tr>
+							<td class="footer" style="border-bottom-left-radius: 16px; border-bottom-right-radius: 16px">
+								<p style="margin-top: 0; margin-bottom: 8px">&copy; 2026 Atomjoy. Wszelkie prawa zastrzeżone.</p>
+								<p style="margin-bottom: 0">Nie Ty? <a href="#">Zgłoś naruszenie</a></p>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

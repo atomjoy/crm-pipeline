@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="pl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Minimalistyczny Szablon E-mail</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				font-family: Arial, sans-serif;
+				background-color: #f4f4f4;
+				color: #333333;
+			}
+			table {
+				border-spacing: 0;
+				width: 100%;
+			}
+			td {
+				padding: 0;
+			}
+			img {
+				border: 0;
+			}
+			.wrapper {
+				width: 100%;
+				table-layout: fixed;
+				background-color: #f4f4f4;
+				padding-top: 40px;
+				padding-bottom: 40px;
+			}
+			.main-table {
+				background-color: #ffffff;
+				margin: 0 auto; /* Wyśrodkowanie w nowoczesnych programach */
+				width: 100%;
+				max-width: 600px;
+				border-spacing: 0;
+				font-family: sans-serif;
+				color: #4a4a4a;
+			}
+			.header {
+				background-color: #1a1a1a;
+				padding: 30px;
+				text-align: center;
+			}
+			.header h1 {
+				color: #ffffff;
+				margin: 0;
+				font-size: 24px;
+			}
+			.content {
+				padding: 30px;
+				line-height: 1.6;
+			}
+			.button-container {
+				margin: 30px auto;
+				width: auto;
+			}
+			.button {
+				background-color: #007bff;
+				color: #ffffff;
+				text-decoration: none;
+				padding: 12px 24px;
+				border-radius: 4px;
+				display: inline-block;
+				font-weight: bold;
+			}
+			.footer {
+				background-color: #f4f4f4;
+				padding: 20px;
+				text-align: center;
+				font-size: 12px;
+				color: #777777;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Bezpieczny zamiennik dla <center>: tabela owijająca 100% -->
+		<table class="wrapper" role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+			<tr>
+				<td align="center">
+					<!-- To wyrównanie odpowiada za centrowanie w Outlooku -->
+
+					<!-- Główna tabela wiadomości -->
+					<table class="main-table" role="presentation" width="100%" max-width="600" cellspacing="0" cellpadding="0" border="0" align="center">
+						<!-- Nagłówek -->
+						<tr>
+							<td class="header">
+								<h1>Twoje Logo / Nazwa</h1>
+							</td>
+						</tr>
+
+						<!-- Treść główna -->
+						<tr>
+							<td class="content">
+								<h2>Witaj,</h2>
+								<p>To jest zaktualizowany, czysty kod HTML zgodny ze standardami e-mail designu, bez użycia przestarzałego znacznika center.</p>
+
+								<!-- Przycisk CTA wyśrodkowany za pomocą atrybutu align -->
+								<table role="presentation" class="button-container" cellspacing="0" cellpadding="0" border="0" align="center">
+									<tr>
+										<td align="center">
+											<a href="#" class="button">Kliknij tutaj</a>
+										</td>
+									</tr>
+								</table>
+
+								<p>Pozdrawiamy,<br />Zespół Atomjoy</p>
+							</td>
+						</tr>
+
+						<!-- Stopka -->
+						<tr>
+							<td class="footer">
+								<p>&copy; 2026 Twoja Firma. Wszelkie prawa zastrzeżone.</p>
+								<p>Jeśli nie chcesz otrzymywać tych wiadomości, <a href="#" style="color: #777777">wypisz się</a>.</p>
+							</td>
+						</tr>
+					</table>
+					<!-- Koniec głównej tabeli -->
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
